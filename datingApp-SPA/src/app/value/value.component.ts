@@ -19,7 +19,7 @@ export class ValueComponent implements OnInit {
   }
 
   getValues(){
-    this.httpClient.get("http://localhost:5000/Values").subscribe((data:any)=>{
+    this.httpClient.get("http://localhost:5002/Values").subscribe((data:any)=>{
 this.values=data;
     });
   }
