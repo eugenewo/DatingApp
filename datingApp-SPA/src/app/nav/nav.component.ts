@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { AlertifyService } from '../_services/alertify.service';
+import { Router } from '@angular/router';
 
 
 
@@ -15,7 +16,7 @@ model:any={};
 username:string='';
 
 
-  constructor(public authServ: AuthService,private notifications:AlertifyService) { }
+  constructor(public authServ: AuthService,private notifications:AlertifyService,private router:Router) { }
 
   ngOnInit() {
   }
@@ -23,8 +24,7 @@ username:string='';
 login() {
   this.authServ.login(this.model).subscribe(next => {
   this.notifications.success('logged in');
- 
-
+  this.router.navigate(['/members']);
   });
 }
 loggedIn(){
@@ -35,6 +35,7 @@ loggedIn(){
 logout(){
   localStorage.removeItem('token');
   this.notifications.success('logged out !!!!');
+  this.router.navigate(['/home']);
 }
  
 
