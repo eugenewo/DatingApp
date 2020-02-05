@@ -1,3 +1,63 @@
-<p>
-{{user.username}}
-</p>
+
+ 
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+          <div class="card">
+            <!-- <img  src="{{user?.photoUrl}}"  alt="{{user?.knownAs}}" class="card-img-top"/> -->
+            <img     alt="{{user?.knownAs}}" class="card-img-top"/>
+            <div class="card-body text-center">
+              <p class="card-text"><strong>Location:</strong> {{user?.country}},{{user?.city}} 
+                <div><strong>Age:</strong>{{user?.age}}</div>
+                <div><strong>Last Active:</strong>{{user?.lastActive}}</div>
+                <div><strong>Member Since:</strong>{{user?.created}}</div>
+            </div>
+            <div class="card-footer text-muted">
+              <div class="btn-group d-flex" role="group"  >
+              <button class="btn btn-primary w-100">Like</button>
+              <button class="btn btn-success w-100">Messaage</button>
+            </div>
+            </div>
+          </div>
+    </div>
+    <div class="col-sm-8">
+
+      <div>
+        <tabset>
+        <tab heading="about {{user.knownAs}}" id="tab1">
+          <h4>Introduction</h4>
+          <p>{{user?.introduction}}</p>
+  
+          <h4>Looking for</h4>
+          <p>{{user?.lookingFor}}</p>
+        </tab>
+  
+        <tab heading="interests" id="tab2">
+          <h4>Interests</h4>
+          <p>{{user?.interests}}</p>
+        </tab>
+
+        <tab heading="Photos" id="tab3">
+          <h4>Photos goes here</h4>
+        </tab>
+
+        <tab heading="Messages" id="tab4">
+          <h4>Messages goes here</h4>
+        </tab>
+         
+        </tabset>
+      </div>
+  
+    </div>
+  </div>
+
+
+  
+  
+
+C:\angular\datingApp\datingApp-SPA\src\app\images\noimage.png
+
+</div>
+
+ 

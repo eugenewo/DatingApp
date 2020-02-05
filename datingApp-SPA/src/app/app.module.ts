@@ -21,6 +21,7 @@ import { UserService } from './_services/user.service';
 import { MemberCardComponent } from './member-card/member-card.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { MemberDetailComponent } from './member-detail/member-detail.component';
+import { TabsModule } from 'ngx-bootstrap/tabs';
  
 
 export function tokenGetter(){
@@ -48,6 +49,7 @@ export function tokenGetter(){
       BrowserAnimationsModule,
       BsDropdownModule.forRoot(),
       RouterModule.forRoot(appRoutes),
+      TabsModule.forRoot(),
       JwtModule.forRoot({
          config:{
             tokenGetter: tokenGetter,
