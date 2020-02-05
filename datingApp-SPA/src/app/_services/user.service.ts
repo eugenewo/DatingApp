@@ -10,21 +10,21 @@ import { User } from "../_models/user";
 export class UserService {
   baseUrl = environment.apiUrl;
 
-httpOptions={
-  headers:new HttpHeaders({
-    'Authorization':'Bearer '+localStorage.getItem('token')
-  }) 
-}
+// httpOptions={
+//   headers:new HttpHeaders({
+//     'Authorization':'Bearer '+localStorage.getItem('token')
+//   }) 
+// }
  
 
 
   constructor(private http: HttpClient) {}
 
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.baseUrl + 'users/',this.httpOptions);
+    return this.http.get<User[]>(this.baseUrl + 'users/');
   }
 
   getUser(id: number): Observable<User> {
-    return this.http.get<User>(this.baseUrl + 'users/' + id,this.httpOptions);
+    return this.http.get<User>(this.baseUrl + 'users/' + id);
   }
 }
