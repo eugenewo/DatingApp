@@ -24,7 +24,7 @@ import { MemberDetailComponent } from './member-detail/member-detail.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { MemberDetailsResolver } from './_resolvers/member-detail.resolver';
 import { MembersResolver } from './_resolvers/members.resolver';
- 
+import { NgxGalleryModule } from 'ngx-gallery';
  
 
 export function tokenGetter(){
@@ -48,6 +48,7 @@ export function tokenGetter(){
    imports: [
       BrowserModule,
       HttpClientModule,
+      NgxGalleryModule,
       FormsModule,
       BrowserAnimationsModule,
       BsDropdownModule.forRoot(),
