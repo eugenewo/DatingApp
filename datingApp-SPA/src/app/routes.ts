@@ -6,6 +6,7 @@ import { ListsComponent } from './lists/lists.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { MemberDetailComponent } from './member-detail/member-detail.component';
 import { MemberDetailsResolver } from './_resolvers/member-detail.resolver';
+import { MembersResolver } from './_resolvers/members.resolver';
 
 
 
@@ -13,7 +14,7 @@ export const appRoutes: Routes = [
     { path: '', component: HomeComponent },
     {path: '',runGuardsAndResolvers:'always',
     children:[
-        { path: 'members', component: MemberListComponent },
+        { path: 'members', component: MemberListComponent,resolve:{users:MembersResolver} },
         { path: 'members/:id', component: MemberDetailComponent,resolve:{user:MemberDetailsResolver} },
         { path: 'messages', component: MessagesComponent },
         { path: 'lists', component: ListsComponent }]

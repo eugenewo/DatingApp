@@ -23,6 +23,8 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { MemberDetailComponent } from './member-detail/member-detail.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { MemberDetailsResolver } from './_resolvers/member-detail.resolver';
+import { MembersResolver } from './_resolvers/members.resolver';
+ 
  
 
 export function tokenGetter(){
@@ -64,7 +66,8 @@ export function tokenGetter(){
       AlertifyService,
       AuthGuard,
       UserService,
-      MemberDetailsResolver
+      MemberDetailsResolver ,
+      MembersResolver
    ],
    bootstrap: [
       AppComponent
