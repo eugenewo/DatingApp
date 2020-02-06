@@ -15,23 +15,11 @@ export class MemberDetailComponent implements OnInit {
 
   ngOnInit() {
 
-    this.getUser();
+    this.router.data.subscribe(data=>{
+      this.user=data['user'];
+    });
+ 
   }
-
-  getUser(){
-   let id= +this.router.snapshot.params['id'];
-
-  this.userService.getUser(id).subscribe((u:User)=>{
-
-    this.user=u;
-
-  },
-  error=>{
-    console.log(error)
-  }
-  
-  
-  );
-  }
+ 
 
 }

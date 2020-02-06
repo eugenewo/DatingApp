@@ -22,6 +22,7 @@ import { MemberCardComponent } from './member-card/member-card.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { MemberDetailComponent } from './member-detail/member-detail.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { MemberDetailsResolver } from './_resolvers/member-detail.resolver';
  
 
 export function tokenGetter(){
@@ -62,7 +63,8 @@ export function tokenGetter(){
       AuthService,
       AlertifyService,
       AuthGuard,
-      UserService
+      UserService,
+      MemberDetailsResolver
    ],
    bootstrap: [
       AppComponent

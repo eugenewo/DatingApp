@@ -5,13 +5,13 @@
   <div class="row">
     <div class="col-sm-4">
           <div class="card">
-            <!-- <img  src="{{user?.photoUrl}}"  alt="{{user?.knownAs}}" class="card-img-top"/> -->
-            <img     alt="{{user?.knownAs}}" class="card-img-top"/>
+            <!-- <img  src="{{user.photoUrl}}"  alt="{{user.knownAs}}" class="card-img-top"/> -->
+            <img     alt="{{user.knownAs}}" class="card-img-top"/>
             <div class="card-body text-center">
-              <p class="card-text"><strong>Location:</strong> {{user?.country}},{{user?.city}} 
-                <div><strong>Age:</strong>{{user?.age}}</div>
-                <div><strong>Last Active:</strong>{{user?.lastActive}}</div>
-                <div><strong>Member Since:</strong>{{user?.created}}</div>
+              <p class="card-text"><strong>Location:</strong> {{user.country}},{{user.city}} 
+                <div><strong>Age:</strong>{{user.age}}</div>
+                <div><strong>Last Active:</strong>{{user.lastActive}}</div>
+                <div><strong>Member Since:</strong>{{user.created}}</div>
             </div>
             <div class="card-footer text-muted">
               <div class="btn-group d-flex" role="group"  >
@@ -27,15 +27,15 @@
         <tabset>
         <tab heading="about {{user.knownAs}}" id="tab1">
           <h4>Introduction</h4>
-          <p>{{user?.introduction}}</p>
+          <p>{{user.introduction}}</p>
   
           <h4>Looking for</h4>
-          <p>{{user?.lookingFor}}</p>
+          <p>{{user.lookingFor}}</p>
         </tab>
   
         <tab heading="interests" id="tab2">
           <h4>Interests</h4>
-          <p>{{user?.interests}}</p>
+          <p>{{user.interests}}</p>
         </tab>
 
         <tab heading="Photos" id="tab3">
