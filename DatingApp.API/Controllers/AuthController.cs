@@ -4,6 +4,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using DatingApp.API.Interfaces;
 using DatingApp.API.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -12,6 +13,7 @@ namespace DatingApp.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+
     public class AuthController : ControllerBase
     {
         private IAuthRepository _repo;

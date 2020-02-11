@@ -43,20 +43,40 @@ namespace DatingApp.API
             services.AddScoped<IAuthRepository,AuthRepository>();
             services.AddScoped<IDatingRepository,DatingRepository>();
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                        .AddJwtBearer(options =>
-                        {
-                            options.TokenValidationParameters=new Microsoft.IdentityModel.Tokens.TokenValidationParameters
-                            {
-                                ValidateIssuerSigningKey=true,
-                                IssuerSigningKey=new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(Configuration.GetSection("AppSettings:Token").Value)),
-                                ValidateIssuer=false,
-                                ValidateAudience=false
-                            };
-                        });
+services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(Configuration.GetSection("AppSettings:Token").Value)),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+
+
+
+        //     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        //                 .AddJwtBearer(options =>
+        //                 {
+        //                     options.TokenValidationParameters=new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+        //                     {
+        //                         ValidateIssuerSigningKey=true,
+        //                         IssuerSigningKey=new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(Configuration.GetSection("AppSettings:Token").Value)),
+        //                         ValidateIssuer=false,
+        //                         ValidateAudience=false
+        //                     };
+        //                 });
                          
             
-        }
+         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env,Seed seeder)

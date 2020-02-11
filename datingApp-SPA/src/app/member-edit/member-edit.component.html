@@ -1,0 +1,69 @@
+
+ 
+
+<div class="container mt-4">
+
+ <div class="row">
+   <div class="col-sm-4"><h1>your profile</h1></div>
+   <div class="col-sm-8" *ngIf="editForm.dirty"><div class="alert alert-info">you have made canges.  </div></div>
+ </div>
+
+  <div class="row">
+    
+    <div class="col-sm-4">
+          <div class="card">
+            <img  src="{{user.photoUrl}}"  alt="{{user.knownAs}}" class="card-img-top"/>
+            <img     alt="{{user.knownAs}}" class="card-img-top"/>
+            <div class="card-body text-center">
+              <p class="card-text"><strong>Location:</strong> {{user.country}},{{user.city}} 
+                <div><strong>Age:</strong>{{user.age}}</div>
+                <div><strong>Last Active:</strong>{{user.lastActive}}</div>
+                <div><strong>Member Since:</strong>{{user.created}}</div>
+            </div>
+            <div class="card-footer text-muted">
+              <div class="btn-group d-flex" role="group"  >
+              <button class="btn btn-primary w-100"  form="editForm"  [disabled]="!editForm.dirty">save</button>
+            </div>
+            </div>
+          </div>
+    </div>
+    <div class="col-sm-8">
+
+      <div>
+        <tabset class="member-tabset">
+        <tab heading="edit profile">
+
+<form #editForm="ngForm"  (ngSubmit)="updateUser()" id="editForm">
+  <h4>Description</h4>
+  <textarea name="introduction"   cols="30" rows="10" class="form-control" [(ngModel)]="user.introduction"></textarea>
+  <h4>Looking for</h4>
+  <textarea name="lookingFor"   cols="30" rows="10" class="form-control" [(ngModel)]="user.lookingFor"></textarea>
+  <h4>interests</h4>
+  <textarea name="interests"   cols="30" rows="10" class="form-control" [(ngModel)]="user.interests"></textarea>
+   <div class=form-inline >
+     <label for="city">City</label>
+     <input type="text" name="city" class="form-control" [(ngModel)]="user.city">
+     <label for="country">Country</label>
+     <input type="text" name="country" class="form-control" [(ngModel)]="user.country">
+   </div>
+</form>
+
+         
+        </tab>
+  
+        <tab heading="edit photos">
+          
+          <p>photo edit will go here</p>
+        </tab>
+
+        
+        </tabset>
+      </div>
+  
+    </div>
+  </div>
+
+
+</div>
+
+ 
