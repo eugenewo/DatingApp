@@ -24,6 +24,11 @@ namespace DatingApp.API.Data
             _ctx.Remove(entity);
         }
 
+        public async Task<Photo> GetPhoto(int id)
+        {
+             return await _ctx.Photos.FirstOrDefaultAsync(p=>p.Id==id);
+        }
+
         public async Task<User> GetUser(int id)
         {
            return await _ctx.Users.Include(p=>p.Photos).FirstOrDefaultAsync(p=>p.Id==id);

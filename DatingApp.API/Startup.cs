@@ -33,7 +33,7 @@ namespace DatingApp.API
         {
             services.AddDbContext<DataContext>(x=>x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")) );
             services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore );
-            
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
              services.AddTransient<Seed>();
              services.AddAutoMapper(typeof(Startup));
               
