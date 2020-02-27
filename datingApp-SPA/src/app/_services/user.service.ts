@@ -10,15 +10,15 @@ import { User } from "../_models/user";
 export class UserService {
   baseUrl = environment.apiUrl;
 
-// httpOptions={
-//   headers:new HttpHeaders({
-//     'Authorization':'Bearer '+localStorage.getItem('token')
-//   }) 
-// }
- 
+  // httpOptions={
+  //   headers:new HttpHeaders({
+  //     'Authorization':'Bearer '+localStorage.getItem('token')
+  //   }) 
+  // }
 
 
-  constructor(private http: HttpClient) {}
+
+  constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.baseUrl + 'users/');
@@ -28,7 +28,13 @@ export class UserService {
     return this.http.get<User>(this.baseUrl + 'users/' + id);
   }
 
-  updateUser(id:number,user:User){
-    return this.http.put(this.baseUrl + 'users/' + id,user);
+  updateUser(id: number, user: User) {
+    return this.http.put(this.baseUrl + 'users/' + id, user);
   }
+
+  setMainPhoto(userId: number, photoId: number) {
+    return this.http.post(this.baseUrl + 'users/' + userId + '/photos/' + photoId + '/setmain', {});
+  }
+
+
 }

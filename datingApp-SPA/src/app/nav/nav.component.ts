@@ -12,31 +12,38 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
 
-model:any={};
-username:string='';
+  model: any = {};
+  username: string = '';
+  photoUrl: string;
 
 
-  constructor(public authServ: AuthService,private notifications:AlertifyService,private router:Router) { }
+  constructor(public authServ: AuthService, private notifications: AlertifyService, private router: Router) { }
 
   ngOnInit() {
+    this.authServ.photoUrl.subscribe(p => this.photoUrl = p);
   }
 
-login() {
-  this.authServ.login(this.model).subscribe(next => {
-  this.notifications.success('logged in');
-  this.router.navigate(['/members']);
-  });
-}
-loggedIn(){
-   
-  return this.authServ.loggedIn();
-}
+  login() {
+    this.authServ.login(this.model).subscribe(next => {
+      this.notifications.success('logged in');
+      this.router.navigate(['/members']);
 
-logout(){
-  localStorage.removeItem('token');
-  this.notifications.success('logged out !!!!');
-  this.router.navigate(['/home']);
-}
- 
+      
+    });
+  }
+  loggedIn() {
+
+    return this.authServ.loggedIn();
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.authServ.decodedToken = null;
+    this.authServ.currentUser = null;
+    this.notifications.success('logged out !!!!');
+    this.router.navigate(['/home']);
+  }
+
 
 }

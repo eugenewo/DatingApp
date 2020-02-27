@@ -2,7 +2,7 @@
   <div class="col-sm-2" *ngFor="let photo of photos">
 <img src="{{photo.url}}" class="img-thumbnail p-1">
 <div class="text-center">
-  <button type="button" class="btn btn-sm">{{photo.isMain}}</button>
+  <button type="button" class="btn btn-sm" (click)='setMainPhoto(photo)'>{{photo.isMain}}</button>
   <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
 </div>
   </div>

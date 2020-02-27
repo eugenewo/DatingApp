@@ -13,16 +13,16 @@ import { AuthService } from '../_services/auth.service';
 export class MemberEditComponent implements OnInit {
 
   constructor(private route:ActivatedRoute,private userService:UserService,private authService:AuthService) { }
-
+  photoUrl:string;
   user:User;
   @ViewChild('editForm') editForm:NgForm;
 
   ngOnInit() {
    this.route.data.subscribe(data=>{
-this.user=data['user'];
+  this.user=data['user'];
 
    });
-
+   this.authService.photoUrl.subscribe(p => this.photoUrl = p);
   }
 
   updateUser(){
@@ -37,6 +37,8 @@ this.user=data['user'];
 
 
   }
-
+  updateMainPhoto(photoUrl:string){
+    this.user.photoUrl=photoUrl;
+  }
 
 }
